@@ -23,6 +23,7 @@ public class UserService {
 	private String MINIID;
 	@Value("${MINISECRET}")
 	private String MINISECRET;
+	//氨基酸第六届
 
 	public String getUserInfo(String code) {
 		
