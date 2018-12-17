@@ -60,10 +60,7 @@ public class QRCodeTool {
     private static final int HEIGHT = 60; 
     
 
-	@Value("${MINIID}")
-	private String MINIID;
-	@Value("${MINISECRET}")
-	private String MINISECRET;
+
     
  
     private static BufferedImage createImage(String content, String logoImgPath, boolean needCompress) throws WriterException, IOException {
@@ -180,7 +177,7 @@ public class QRCodeTool {
         return QRCodeTool.decode(new File(path));  
     } 
     
-    public  void getQrcode(String path) throws Exception {
+    public  void getQrcode(String path,String MINIID,String MINISECRET) throws Exception {
 		StringBuffer buffer = new StringBuffer();
 		try {
 			TrustManager[] tm = { new HttpsTrustManagerTool() };
