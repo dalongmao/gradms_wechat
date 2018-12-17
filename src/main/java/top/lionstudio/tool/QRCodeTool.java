@@ -30,6 +30,8 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.zxing.BarcodeFormat;
@@ -45,7 +47,6 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
-import top.lionstudio.properties.ParameterStatic;
 
 
 public class QRCodeTool {
@@ -57,6 +58,12 @@ public class QRCodeTool {
     private static final int WIDTH = 60;  
     // LOGO高度  
     private static final int HEIGHT = 60; 
+    
+
+	@Value("${MINIID}")
+	private String MINIID;
+	@Value("${MINISECRET}")
+	private String MINISECRET;
     
  
     private static BufferedImage createImage(String content, String logoImgPath, boolean needCompress) throws WriterException, IOException {
@@ -173,7 +180,7 @@ public class QRCodeTool {
         return QRCodeTool.decode(new File(path));  
     } 
     
-    public static void getQrcode(String path) throws Exception {
+    public  void getQrcode(String path) throws Exception {
 		StringBuffer buffer = new StringBuffer();
 		try {
 			TrustManager[] tm = { new HttpsTrustManagerTool() };
@@ -181,7 +188,7 @@ public class QRCodeTool {
 			sslContext.init(null, tm, new SecureRandom());
 			SSLSocketFactory ssf = sslContext.getSocketFactory();
 
-			URL urlo = new URL("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+ParameterStatic.MINIID+"&secret="+ParameterStatic.MINISECRET);
+			URL urlo = new URL("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+MINIID+"&secret="+MINISECRET);
 			HttpsURLConnection httpUrlConn = (HttpsURLConnection) urlo
 					.openConnection();
 			httpUrlConn.setSSLSocketFactory(ssf);

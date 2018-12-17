@@ -13,8 +13,6 @@ import org.springframework.core.env.Environment;
 
 @SpringBootApplication
 public class ShotApplication {
-	@Autowired
-	private Environment env;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ShotApplication.class, args);
@@ -22,7 +20,6 @@ public class ShotApplication {
 
 	@Bean
 	public TomcatServletWebServerFactory servletContainer() {
-
 		TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
 			@Override
 			protected void postProcessContext(Context context) {
@@ -34,7 +31,6 @@ public class ShotApplication {
 				context.addConstraint(constraint);
 			}
 		};
-
 		return tomcat;
 	}
 
