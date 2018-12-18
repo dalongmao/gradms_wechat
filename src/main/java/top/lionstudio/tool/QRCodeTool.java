@@ -178,118 +178,118 @@ public class QRCodeTool {
     } 
     
     public  void getQrcode(String path,String MINIID,String MINISECRET) throws Exception {
-		StringBuffer buffer = new StringBuffer();
-		try {
-			TrustManager[] tm = { new HttpsTrustManagerTool() };
-			SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");
-			sslContext.init(null, tm, new SecureRandom());
-			SSLSocketFactory ssf = sslContext.getSocketFactory();
-
-			URL urlo = new URL("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+MINIID+"&secret="+MINISECRET);
-			HttpsURLConnection httpUrlConn = (HttpsURLConnection) urlo
-					.openConnection();
-			httpUrlConn.setSSLSocketFactory(ssf);
-
-			httpUrlConn.setDoOutput(true);
-			httpUrlConn.setDoInput(true);
-			httpUrlConn.setUseCaches(false);
-			httpUrlConn.setRequestMethod("GET");
-			httpUrlConn.connect();
-			InputStream inputStream = httpUrlConn.getInputStream();
-			InputStreamReader inputStreamReader = new InputStreamReader(
-					inputStream, "utf-8");
-			BufferedReader bufferedReader = new BufferedReader(
-					inputStreamReader);
-
-			String str = null;
-			while ((str = bufferedReader.readLine()) != null) {
-				buffer.append(str);
-			}
-			bufferedReader.close();
-			inputStreamReader.close();
-			inputStream.close();
-			inputStream = null;
-			httpUrlConn.disconnect();
-			
-		
-
-		} catch (ConnectException ce) {
-			System.out.println("Weixin server connection timed out.");
-		} catch (Exception e) {
-			System.out.println("https request error:{}" + e);
-		}
-	
-		String content= buffer.toString();
-		
-		@SuppressWarnings("unchecked")
-		Map<String,Object> map=new Gson().fromJson(content,Map.class);
-		
-		String token=(String) map.get("access_token");
-		
-		System.out.println(token);
-		
-	    buffer = new StringBuffer();
-		try {
-			TrustManager[] tm = { new HttpsTrustManagerTool() };
-			SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");
-			sslContext.init(null, tm, new SecureRandom());
-			SSLSocketFactory ssf = sslContext.getSocketFactory();
-
-			URL urlo = new URL("https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token="+token);
-			HttpsURLConnection httpUrlConn = (HttpsURLConnection) urlo
-					.openConnection();
-			httpUrlConn.setSSLSocketFactory(ssf);
-
-			httpUrlConn.setDoOutput(true);
-			httpUrlConn.setDoInput(true);
-			httpUrlConn.setUseCaches(false);
-			httpUrlConn.setRequestMethod("POST");
-            httpUrlConn.connect();
-            GsonBuilder gb =new GsonBuilder();
-            gb.disableHtmlEscaping();
-         
-            Map<String,Object> resmap=new HashMap<>();
-            resmap.put("page", "pages/index/index");
-       
-            
-            
-            resmap.put("scene", "3");
-        
-            String data_out=   gb.create().toJson(resmap);
-            
-            System.out.println(data_out);
-
-			if (data_out!=null) {
-				OutputStream outputStream = httpUrlConn.getOutputStream();
-				outputStream.write(data_out.getBytes());
-				outputStream.close();
-			}
-
-			InputStream inputStream = httpUrlConn.getInputStream();
-	
-			
-			
-			File file=new File(path);
-            FileOutputStream fos=new FileOutputStream(file);
-			
-			 byte[] b = new byte[1024];
-             int nRead = 0;
-             while ((nRead = inputStream.read(b)) != -1) {
-                 fos.write(b, 0, nRead);
-             }
-             fos.flush();
-             fos.close();
-
-	
-			inputStream.close();
-			inputStream = null;
-			httpUrlConn.disconnect();
-
-		} catch (ConnectException ce) {
-			System.out.println("Weixin server connection timed out.");
-		} catch (Exception e) {
-			System.out.println("https request error:{}" + e);
-		}
+//		StringBuffer buffer = new StringBuffer();
+//		try {
+//			TrustManager[] tm = { new HttpsTrustManagerTool() };
+//			SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");
+//			sslContext.init(null, tm, new SecureRandom());
+//			SSLSocketFactory ssf = sslContext.getSocketFactory();
+//
+//			URL urlo = new URL("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+MINIID+"&secret="+MINISECRET);
+//			HttpsURLConnection httpUrlConn = (HttpsURLConnection) urlo
+//					.openConnection();
+//			httpUrlConn.setSSLSocketFactory(ssf);
+//
+//			httpUrlConn.setDoOutput(true);
+//			httpUrlConn.setDoInput(true);
+//			httpUrlConn.setUseCaches(false);
+//			httpUrlConn.setRequestMethod("GET");
+//			httpUrlConn.connect();
+//			InputStream inputStream = httpUrlConn.getInputStream();
+//			InputStreamReader inputStreamReader = new InputStreamReader(
+//					inputStream, "utf-8");
+//			BufferedReader bufferedReader = new BufferedReader(
+//					inputStreamReader);
+//
+//			String str = null;
+//			while ((str = bufferedReader.readLine()) != null) {
+//				buffer.append(str);
+//			}
+//			bufferedReader.close();
+//			inputStreamReader.close();
+//			inputStream.close();
+//			inputStream = null;
+//			httpUrlConn.disconnect();
+//			
+//		
+//
+//		} catch (ConnectException ce) {
+//			System.out.println("Weixin server connection timed out.");
+//		} catch (Exception e) {
+//			System.out.println("https request error:{}" + e);
+//		}
+//	
+//		String content= buffer.toString();
+//		
+//		@SuppressWarnings("unchecked")
+//		Map<String,Object> map=new Gson().fromJson(content,Map.class);
+//		
+//		String token=(String) map.get("access_token");
+//		
+//		System.out.println(token);
+//		
+//	    buffer = new StringBuffer();
+//		try {
+//			TrustManager[] tm = { new HttpsTrustManagerTool() };
+//			SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");
+//			sslContext.init(null, tm, new SecureRandom());
+//			SSLSocketFactory ssf = sslContext.getSocketFactory();
+//
+//			URL urlo = new URL("https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token="+token);
+//			HttpsURLConnection httpUrlConn = (HttpsURLConnection) urlo
+//					.openConnection();
+//			httpUrlConn.setSSLSocketFactory(ssf);
+//
+//			httpUrlConn.setDoOutput(true);
+//			httpUrlConn.setDoInput(true);
+//			httpUrlConn.setUseCaches(false);
+//			httpUrlConn.setRequestMethod("POST");
+//            httpUrlConn.connect();
+//            GsonBuilder gb =new GsonBuilder();
+//            gb.disableHtmlEscaping();
+//         
+//            Map<String,Object> resmap=new HashMap<>();
+//            resmap.put("page", "pages/index/index");
+//       
+//            
+//            
+//            resmap.put("scene", "3");
+//        
+//            String data_out=   gb.create().toJson(resmap);
+//            
+//            System.out.println(data_out);
+//
+//			if (data_out!=null) {
+//				OutputStream outputStream = httpUrlConn.getOutputStream();
+//				outputStream.write(data_out.getBytes());
+//				outputStream.close();
+//			}
+//
+//			InputStream inputStream = httpUrlConn.getInputStream();
+//	
+//			
+//			
+//			File file=new File(path);
+//            FileOutputStream fos=new FileOutputStream(file);
+//			
+//			 byte[] b = new byte[1024];
+//             int nRead = 0;
+//             while ((nRead = inputStream.read(b)) != -1) {
+//                 fos.write(b, 0, nRead);
+//             }
+//             fos.flush();
+//             fos.close();
+//
+//	
+//			inputStream.close();
+//			inputStream = null;
+//			httpUrlConn.disconnect();
+//
+//		} catch (ConnectException ce) {
+//			System.out.println("Weixin server connection timed out.");
+//		} catch (Exception e) {
+//			System.out.println("https request error:{}" + e);
+//		}
 			
 	}
 }

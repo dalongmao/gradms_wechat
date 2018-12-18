@@ -1,16 +1,22 @@
 package top.lionstudio.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import top.lionstudio.tool.RequestTool;
+
 public class Test {
 
 	public static void main(String[] args) {
-		int nums[]= {3,1,2,0,4,4,5};
-		int cur=0;
-		for(int i=0;i<=5;i++) 
-			cur=cur^i;
-		for(int c:nums) 
-			cur=cur^c;
-		System.out.println(cur);
-
+		List <NameValuePair> nvps = new ArrayList <NameValuePair>();
+		nvps.add(new BasicNameValuePair("username", "vip"));
+		nvps.add(new BasicNameValuePair("password", "secret"));
+		String content=RequestTool.HttpsPostForMap(nvps, "http://localhost:8080/gradms/wechat/wechatWebRequestDataObject.do");
+		System.out.println(content);
+			
 	}
 
 }
