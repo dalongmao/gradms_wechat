@@ -9,8 +9,6 @@ import org.apache.http.message.BasicNameValuePair;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 import top.lionstudio.tool.JsonTool;
 import top.lionstudio.tool.RequestTool;
@@ -24,17 +22,23 @@ public class DoctorService {
 	public Map requestDoctorAnswerProclaimForm(int userId) {
 		List <NameValuePair> nvps = new ArrayList <NameValuePair>();
 		nvps.add(new BasicNameValuePair("userId", userId+""));
+		nvps.add(new BasicNameValuePair("CMD", "docform"));
+		String content=RequestTool.HttpsPostForMap(nvps, URL_GRADMS);
+		if(content==null||content.equals("")||content.equals("error")) 
+			return null;
+		else 
+			return (Map) JsonTool.fromJson(content, Map.class);
+			
+	}
+	public Map requestAllDoctors() {
+		List <NameValuePair> nvps = new ArrayList <NameValuePair>();
+		nvps.add(new BasicNameValuePair("CMD", "doclist"));
 		String content=RequestTool.HttpsPostForMap(nvps, URL_GRADMS);
 		System.out.println(content);
 		if(content==null||content.equals("")||content.equals("error")) 
 			return null;
 		else 
 			return (Map) JsonTool.fromJson(content, Map.class);
-		
-		
-		
-
-		
 	}
 	
 

@@ -1,10 +1,8 @@
 package top.lionstudio.tool;
 
-import java.io.InputStream;
 import java.net.Socket;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.net.ssl.SSLContext;
@@ -29,8 +27,9 @@ import org.apache.http.util.EntityUtils;
 
 
 public class RequestTool {
+	public static CloseableHttpClient httpclient;
 	
-	public static String HttpsPostForMap(List<NameValuePair> nvps,String url) {
+	static {
 		try {
 			SSLContext sc = SSLContext.getInstance("SSLv3");
 			sc.init(null, new TrustManager[] { new HttpsTrustManager() }, null);
@@ -38,7 +37,16 @@ public class RequestTool {
 					.register("http", PlainConnectionSocketFactory.INSTANCE)
 					.register("https", new SSLConnectionSocketFactory(sc)).build();
 			PoolingHttpClientConnectionManager connManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);  
-			CloseableHttpClient httpclient = HttpClients.custom().setConnectionManager(connManager).build(); 
+			 httpclient = HttpClients.custom().setConnectionManager(connManager).build(); 
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+	
+	}
+	
+	public static String HttpsPostForMap(List<NameValuePair> nvps,String url) {
+		try {
+		
 			HttpPost httpPost = new HttpPost(url);
 			httpPost.setEntity(new UrlEncodedFormEntity(nvps));
 			CloseableHttpResponse response = httpclient.execute(httpPost);

@@ -26,11 +26,21 @@ public class DoctorProclaimController {
 
 
 	@RequestMapping(value = "/doctor/getdoctorproclaim", method = RequestMethod.POST)
-	public @ResponseBody Object test(@RequestBody Map<String, Object> map, HttpSession httpsession) {
+	public @ResponseBody Object getdoctorproclaim(@RequestBody Map<String, Object> map, HttpSession httpsession) {
 	//	ZwWechatUser user = (ZwWechatUser) httpsession.getAttribute("USER");
-	//	int id = user.getUserid();
-		int id=115723;
+		int id = Integer.parseInt(map.get("id")+"") ;
+		
 		return MapTool.getSuccessRes(doctorService.requestDoctorAnswerProclaimForm(id));
 	}
+	
+	@RequestMapping(value = "/doctor/getdoctorlist", method = RequestMethod.POST)
+	public @ResponseBody Object getdoctorlist(@RequestBody Map<String, Object> map, HttpSession httpsession) {
+	//	ZwWechatUser user = (ZwWechatUser) httpsession.getAttribute("USER");
+	//	int id = user.getUserid();
+	
+		return MapTool.getSuccessRes(doctorService.requestAllDoctors());
+	}
+	
+	
 
 }
