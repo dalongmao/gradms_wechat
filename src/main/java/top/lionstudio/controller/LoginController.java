@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-import top.lionstudio.entity.ZwWechatUser;
+import top.lionstudio.entity.WechatUser;
 import top.lionstudio.repo.WechatUserRepo;
 import top.lionstudio.service.UserService;
 import top.lionstudio.tool.MD5Tool;
@@ -44,10 +44,10 @@ public class LoginController {
 		JsonObject logininfo = gson.fromJson(userService.getUserInfo(code), JsonObject.class);
 		String openid = logininfo.get("openid").getAsString();
 		String session_key = logininfo.get("session_key").getAsString();
-		ZwWechatUser wuser = wechatUserRepo.findByOpenid(openid);
+		WechatUser wuser = wechatUserRepo.findByOpenid(openid);
 		JsonObject userinfo = gson.fromJson(MD5Tool.decryptUserinfo(encryptedData, session_key, iv), JsonObject.class);
 		if (wuser == null) {
-			wuser = new ZwWechatUser();
+			wuser = new WechatUser();
 			wuser.setOpenid(openid);
 		}
 		wuser.setNickname(StringTool.filterEmoji(userinfo.get("nickName").getAsString()));

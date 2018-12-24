@@ -3,10 +3,10 @@ package top.lionstudio.repo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import top.lionstudio.entity.ZwMeetingSign;
+import top.lionstudio.entity.MeetingSign;
 
 @Repository
-public interface SigninfoRepo  extends JpaRepository<ZwMeetingSign, Long>{
+public interface SigninfoRepo  extends JpaRepository<MeetingSign, Long>{
 			
-		public ZwMeetingSign findByOpenid(String openid);
+		public MeetingSign findByOpenid(String openid);
 }

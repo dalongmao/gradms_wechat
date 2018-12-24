@@ -10,8 +10,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="zw_wechat_user")
-@NamedQuery(name="ZwWechatUser.findAll", query="SELECT z FROM ZwWechatUser z")
-public class ZwWechatUser implements Serializable {
+@NamedQuery(name="ZwWechatUser.findAll", query="SELECT z FROM WechatUser z")
+public class WechatUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -33,7 +33,7 @@ public class ZwWechatUser implements Serializable {
 
 	private int userid;
 
-	public ZwWechatUser() {
+	public WechatUser() {
 	}
 
 	public String getOpenid() {

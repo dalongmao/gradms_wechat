@@ -10,8 +10,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="zw_meeting_sign")
-@NamedQuery(name="ZwMeetingSign.findAll", query="SELECT z FROM ZwMeetingSign z")
-public class ZwMeetingSign implements Serializable {
+@NamedQuery(name="ZwMeetingSign.findAll", query="SELECT z FROM MeetingSign z")
+public class MeetingSign implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -32,7 +32,7 @@ public class ZwMeetingSign implements Serializable {
 
 	private String type;
 
-	public ZwMeetingSign() {
+	public MeetingSign() {
 	}
 
 	public int getId() {

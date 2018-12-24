@@ -3,12 +3,12 @@ package top.lionstudio.repo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import top.lionstudio.entity.ZwWechatUser;
+import top.lionstudio.entity.WechatUser;
 
 @Repository
-public interface WechatUserRepo  extends JpaRepository<ZwWechatUser, Long>{
+public interface WechatUserRepo  extends JpaRepository<WechatUser, Long>{
 	
-	public ZwWechatUser findByOpenid(String openid);
+	public WechatUser findByOpenid(String openid);
 	
 
 	

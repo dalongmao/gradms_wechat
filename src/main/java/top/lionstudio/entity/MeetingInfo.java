@@ -11,8 +11,8 @@ import java.util.Date;
  */
 @Entity
 @Table(name="zw_meeting_info")
-@NamedQuery(name="ZwMeetingInfo.findAll", query="SELECT z FROM ZwMeetingInfo z")
-public class ZwMeetingInfo implements Serializable {
+@NamedQuery(name="ZwMeetingInfo.findAll", query="SELECT z FROM MeetingInfo z")
+public class MeetingInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -42,7 +42,7 @@ public class ZwMeetingInfo implements Serializable {
 	@Column(name="time_start")
 	private Date timeStart;
 
-	public ZwMeetingInfo() {
+	public MeetingInfo() {
 	}
 
 	public int getId() {

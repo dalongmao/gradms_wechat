@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import top.lionstudio.entity.ZwMeetingInfo;
-import top.lionstudio.entity.ZwMeetingSign;
-import top.lionstudio.entity.ZwWechatUser;
+import top.lionstudio.entity.MeetingInfo;
+import top.lionstudio.entity.MeetingSign;
+import top.lionstudio.entity.WechatUser;
 import top.lionstudio.repo.MeetinginfoRepo;
 import top.lionstudio.repo.SigninfoRepo;
 import top.lionstudio.tool.DateTimeTool;
@@ -30,9 +30,9 @@ public class MeetingController {
 
 	@RequestMapping(value = "/meeting/getmeetinginfo", method = RequestMethod.POST)
 	public @ResponseBody Object getmeetinginfo(@RequestBody Map<String, Object> map, HttpSession httpsession) {
-		ZwWechatUser user = (ZwWechatUser) httpsession.getAttribute("USER");
+		WechatUser user = (WechatUser) httpsession.getAttribute("USER");
 		int id = (int) map.get("id");
-		ZwMeetingInfo meetinginfo = meetinginforepo.findById(id);
+		MeetingInfo meetinginfo = meetinginforepo.findById(id);
 
 		int pnum = (int) signinfoRepo.count();
 
@@ -58,10 +58,10 @@ public class MeetingController {
 
 	@RequestMapping(value = "/meeting/sign", method = RequestMethod.POST)
 	public @ResponseBody Object sign(@RequestBody Map<String, Object> map, HttpSession httpsession) {
-		ZwWechatUser user = (ZwWechatUser) httpsession.getAttribute("USER");
-		ZwMeetingSign signinfo = signinfoRepo.findByOpenid(user.getOpenid());
+		WechatUser user = (WechatUser) httpsession.getAttribute("USER");
+		MeetingSign signinfo = signinfoRepo.findByOpenid(user.getOpenid());
 		if (signinfo == null)
-			signinfo = new ZwMeetingSign();
+			signinfo = new MeetingSign();
 		String name = (String) map.get("name");
 		String num = (String) map.get("num");
 		String phonenum = (String) map.get("phonenum");
@@ -87,8 +87,8 @@ public class MeetingController {
 
 	@RequestMapping(value = "/meeting/getsigninfo", method = RequestMethod.POST)
 	public @ResponseBody Object getsigninfo(@RequestBody Map<String, Object> map, HttpSession httpsession) {
-		ZwWechatUser user = (ZwWechatUser) httpsession.getAttribute("USER");
-		ZwMeetingSign signinfo = signinfoRepo.findByOpenid(user.getOpenid());
+		WechatUser user = (WechatUser) httpsession.getAttribute("USER");
+		MeetingSign signinfo = signinfoRepo.findByOpenid(user.getOpenid());
 
 		return MapTool.getSuccessRes(signinfo);
 	}
