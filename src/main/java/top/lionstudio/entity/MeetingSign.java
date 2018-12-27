@@ -15,12 +15,12 @@ public class MeetingSign implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	private Integer id;
 
 	private String college;
 
 	@Column(name="id_meeting")
-	private int idMeeting;
+	private Integer idMeeting;
 
 	private String name;
 
@@ -35,7 +35,7 @@ public class MeetingSign implements Serializable {
 	public MeetingSign() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
@@ -51,7 +51,7 @@ public class MeetingSign implements Serializable {
 		this.college = college;
 	}
 
-	public int getIdMeeting() {
+	public Integer getIdMeeting() {
 		return this.idMeeting;
 	}
 

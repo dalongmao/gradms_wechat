@@ -29,9 +29,9 @@ public class WechatUser implements Serializable {
 
 	private String province;
 
-	private int sex;
+	private Integer sex;
 
-	private int userid;
+	private Integer userid;
 
 	public WechatUser() {
 	}
@@ -92,7 +92,7 @@ public class WechatUser implements Serializable {
 		this.province = province;
 	}
 
-	public int getSex() {
+	public Integer getSex() {
 		return this.sex;
 	}
 
@@ -100,7 +100,7 @@ public class WechatUser implements Serializable {
 		this.sex = sex;
 	}
 
-	public int getUserid() {
+	public Integer getUserid() {
 		return this.userid;
 	}
 

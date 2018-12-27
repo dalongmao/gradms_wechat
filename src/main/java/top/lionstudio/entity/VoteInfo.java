@@ -16,17 +16,17 @@ public class VoteInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	private Integer id;
+
+	private String content;
 
 	private String descri;
 
 	@Column(name="id_creator")
-	private int idCreator;
+	private Integer idCreator;
 
 	@Column(name="id_meeting")
-	private int idMeeting;
-
-	private String options;
+	private Integer idMeeting;
 
 	private String role;
 
@@ -36,15 +36,25 @@ public class VoteInfo implements Serializable {
 
 	private String title;
 
+	private String type;
+
 	public VoteInfo() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getContent() {
+		return this.content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public String getDescri() {
@@ -55,7 +65,7 @@ public class VoteInfo implements Serializable {
 		this.descri = descri;
 	}
 
-	public int getIdCreator() {
+	public Integer getIdCreator() {
 		return this.idCreator;
 	}
 
@@ -63,20 +73,12 @@ public class VoteInfo implements Serializable {
 		this.idCreator = idCreator;
 	}
 
-	public int getIdMeeting() {
+	public Integer getIdMeeting() {
 		return this.idMeeting;
 	}
 
 	public void setIdMeeting(int idMeeting) {
 		this.idMeeting = idMeeting;
-	}
-
-	public String getOptions() {
-		return this.options;
-	}
-
-	public void setOptions(String options) {
-		this.options = options;
 	}
 
 	public String getRole() {
@@ -101,6 +103,14 @@ public class VoteInfo implements Serializable {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

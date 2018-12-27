@@ -8,6 +8,9 @@ import java.net.URL;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -16,10 +19,14 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509ExtendedTrustManager;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import top.lionstudio.properties.UrlStatic;
+import top.lionstudio.tool.JsonTool;
+import top.lionstudio.tool.RequestTool;
 
 @Service
 public class UserService {
@@ -27,7 +34,11 @@ public class UserService {
 	private String MINIID;
 	@Value("${MINISECRET}")
 	private String MINISECRET;
+	@Value("${URL_GRADMS}")
+	private String URL_GRADMS;
 
+	
+	
 	public String getUserInfo(String code) {
 
 		StringBuffer buffer = new StringBuffer();

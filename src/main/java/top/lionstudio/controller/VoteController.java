@@ -19,10 +19,21 @@ public class VoteController {
 		int id=(int) map.get("id");
 		
 		
+		
+
+		return null;
+	}
+	@RequestMapping(value = "/vote/createVote", method = RequestMethod.POST)
+	public @ResponseBody Object createVote(@RequestBody Map<String,Object> map, HttpSession httpsession) {
+		int id=(int) map.get("id");
+		
+		
+		
 
 		return null;
 	}
 	
+
 
 
 }

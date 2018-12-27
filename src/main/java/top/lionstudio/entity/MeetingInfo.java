@@ -16,13 +16,13 @@ public class MeetingInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	private Integer id;
 
 	private String address;
 
 	private String descri;
 
-	private int maxnum;
+	private Integer maxnum;
 
 	private String name;
 
@@ -45,7 +45,7 @@ public class MeetingInfo implements Serializable {
 	public MeetingInfo() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
@@ -69,7 +69,7 @@ public class MeetingInfo implements Serializable {
 		this.descri = descri;
 	}
 
-	public int getMaxnum() {
+	public Integer getMaxnum() {
 		return this.maxnum;
 	}
 

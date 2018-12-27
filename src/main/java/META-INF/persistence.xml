@@ -3,9 +3,10 @@
 	<persistence-unit name="sdry">
 		<class>top.lionstudio.entity.MeetingInfo</class>
 		<class>top.lionstudio.entity.MeetingSign</class>
-		<class>top.lionstudio.entity.WechatUser</class>
 		<class>top.lionstudio.entity.VoteInfo</class>
 		<class>top.lionstudio.entity.VoteItem</class>
-		<class>top.lionstudio.entity.YsjCjxx</class>
+		<class>top.lionstudio.entity.WechatUser</class>
+		<class>top.lionstudio.entity.SysUser</class>
+		<class>top.lionstudio.entity.InfoPersonInfo</class>
 	</persistence-unit>
 </persistence>

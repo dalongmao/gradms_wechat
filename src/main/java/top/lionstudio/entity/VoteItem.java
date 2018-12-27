@@ -16,13 +16,13 @@ public class VoteItem implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	private Integer id;
 
 	@Column(name="id_user")
-	private int idUser;
+	private Integer idUser;
 
 	@Column(name="id_vote")
-	private int idVote;
+	private Integer idVote;
 
 	private String result;
 
@@ -33,7 +33,7 @@ public class VoteItem implements Serializable {
 	public VoteItem() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
@@ -41,7 +41,7 @@ public class VoteItem implements Serializable {
 		this.id = id;
 	}
 
-	public int getIdUser() {
+	public Integer getIdUser() {
 		return this.idUser;
 	}
 
@@ -49,7 +49,7 @@ public class VoteItem implements Serializable {
 		this.idUser = idUser;
 	}
 
-	public int getIdVote() {
+	public Integer getIdVote() {
 		return this.idVote;
 	}
 
