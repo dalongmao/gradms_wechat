@@ -42,6 +42,10 @@ public class DateTimeTool {
 		
 	}
 	
+	public static Date changeDate2Today(Date date) {
+		return getDateFromStr(getFormatDate(date,DateFormat1), DateFormat1);
+	}
+	
 	/**
 	 * 根据日期字符返回日期对象
 	 * 

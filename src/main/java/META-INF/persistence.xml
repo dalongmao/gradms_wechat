@@ -8,5 +8,7 @@
 		<class>top.lionstudio.entity.WechatUser</class>
 		<class>top.lionstudio.entity.SysUser</class>
 		<class>top.lionstudio.entity.InfoPersonInfo</class>
+		<class>top.lionstudio.entity.RoomApply</class>
+		<class>top.lionstudio.entity.RoomInfo</class>
 	</persistence-unit>
 </persistence>
