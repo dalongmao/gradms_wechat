@@ -1,6 +1,7 @@
 package top.lionstudio.controller;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import top.lionstudio.entity.RoomApply;
 import top.lionstudio.repo.RoomApplyRepo;
 import top.lionstudio.repo.RoomInfoRepo;
+import top.lionstudio.service.RoomService;
 import top.lionstudio.tool.DateTimeTool;
+import top.lionstudio.tool.MapTool;
 
 @RestController
 public class RoomController {
@@ -24,6 +27,8 @@ public class RoomController {
 	private RoomApplyRepo roomApplyRepo;
 	@Autowired
 	private RoomInfoRepo roomInfoRepo;
+	@Autowired
+	private RoomService roomService;
 
 	@RequestMapping(value = "/wechat/getMyApply", method = RequestMethod.POST)
 	public @ResponseBody Object getMyApply(@RequestBody Map map, HttpSession httpsession) {
