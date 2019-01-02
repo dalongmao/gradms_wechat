@@ -84,6 +84,8 @@ public class MeetingController {
 		}
 
 	}
+	
+	
 
 	@RequestMapping(value = "/meeting/getsigninfo", method = RequestMethod.POST)
 	public @ResponseBody Object getsigninfo(@RequestBody Map<String, Object> map, HttpSession httpsession) {

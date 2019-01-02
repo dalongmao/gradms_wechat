@@ -14,26 +14,18 @@ import java.util.Date;
 @NamedQuery(name="ZwVoteItem.findAll", query="SELECT z FROM VoteItem z")
 public class VoteItem implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	private Integer id;
-
-	@Column(name="id_user")
-	private Integer idUser;
-
-	@Column(name="id_vote")
-	private Integer idVote;
-
+	private int id;
+	private int idUser;
+	private int idVote;
 	private String result;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="time_vote")
 	private Date timeVote;
 
 	public VoteItem() {
 	}
 
-	public Integer getId() {
+
+	@Id
+	public int getId() {
 		return this.id;
 	}
 
@@ -41,7 +33,9 @@ public class VoteItem implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getIdUser() {
+
+	@Column(name="id_user")
+	public int getIdUser() {
 		return this.idUser;
 	}
 
@@ -49,13 +43,16 @@ public class VoteItem implements Serializable {
 		this.idUser = idUser;
 	}
 
-	public Integer getIdVote() {
+
+	@Column(name="id_vote")
+	public int getIdVote() {
 		return this.idVote;
 	}
 
 	public void setIdVote(int idVote) {
 		this.idVote = idVote;
 	}
+
 
 	public String getResult() {
 		return this.result;
@@ -65,6 +62,9 @@ public class VoteItem implements Serializable {
 		this.result = result;
 	}
 
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="time_vote")
 	public Date getTimeVote() {
 		return this.timeVote;
 	}

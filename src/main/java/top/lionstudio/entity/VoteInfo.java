@@ -14,41 +14,32 @@ import java.util.Date;
 @NamedQuery(name="ZwVoteInfo.findAll", query="SELECT z FROM VoteInfo z")
 public class VoteInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Id
 	private Integer id;
-
 	private String content;
-
 	private String descri;
-
-	@Column(name="id_creator")
 	private Integer idCreator;
-
-	@Column(name="id_meeting")
-	private Integer idMeeting;
-
+	private Integer idGroup;
 	private String role;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="time_creat")
 	private Date timeCreat;
-
+	private Date timeEnd;
 	private String title;
-
 	private String type;
 
 	public VoteInfo() {
 	}
 
+
+	@Id
 	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
+
+	@Lob
 	public String getContent() {
 		return this.content;
 	}
@@ -56,6 +47,7 @@ public class VoteInfo implements Serializable {
 	public void setContent(String content) {
 		this.content = content;
 	}
+
 
 	public String getDescri() {
 		return this.descri;
@@ -65,21 +57,26 @@ public class VoteInfo implements Serializable {
 		this.descri = descri;
 	}
 
+
+	@Column(name="id_creator")
 	public Integer getIdCreator() {
 		return this.idCreator;
 	}
 
-	public void setIdCreator(int idCreator) {
+	public void setIdCreator(Integer idCreator) {
 		this.idCreator = idCreator;
 	}
 
-	public Integer getIdMeeting() {
-		return this.idMeeting;
+
+	@Column(name="id_group")
+	public Integer getIdGroup() {
+		return this.idGroup;
 	}
 
-	public void setIdMeeting(int idMeeting) {
-		this.idMeeting = idMeeting;
+	public void setIdGroup(Integer idGroup) {
+		this.idGroup = idGroup;
 	}
+
 
 	public String getRole() {
 		return this.role;
@@ -89,6 +86,9 @@ public class VoteInfo implements Serializable {
 		this.role = role;
 	}
 
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="time_creat")
 	public Date getTimeCreat() {
 		return this.timeCreat;
 	}
@@ -97,6 +97,18 @@ public class VoteInfo implements Serializable {
 		this.timeCreat = timeCreat;
 	}
 
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="time_end")
+	public Date getTimeEnd() {
+		return this.timeEnd;
+	}
+
+	public void setTimeEnd(Date timeEnd) {
+		this.timeEnd = timeEnd;
+	}
+
+
 	public String getTitle() {
 		return this.title;
 	}
@@ -104,6 +116,7 @@ public class VoteInfo implements Serializable {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 
 	public String getType() {
 		return this.type;
