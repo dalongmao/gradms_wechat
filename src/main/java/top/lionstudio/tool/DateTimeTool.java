@@ -119,6 +119,9 @@ public class DateTimeTool {
 	 * @return 比如：2006-02-03
 	 */
 	public static String getFormatDate(Date indate, String format) {
+		if (indate==null) 
+			return "";
+		
 		SimpleDateFormat dateformat = new SimpleDateFormat(format);
 
 		return dateformat.format(indate);
