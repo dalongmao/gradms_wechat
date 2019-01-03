@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import top.lionstudio.entity.VoteGroup;
 import top.lionstudio.entity.VoteInfo;
@@ -21,6 +21,7 @@ import top.lionstudio.entity.WechatUser;
 import top.lionstudio.repo.VoteGroupRepo;
 import top.lionstudio.repo.VoteInfoRepo;
 import top.lionstudio.repo.VoteItemRepo;
+import top.lionstudio.tool.DateTimeTool;
 import top.lionstudio.tool.MapTool;
 
 
@@ -35,7 +36,8 @@ public class VoteController {
 	
 	// 得到一组表决
 	@RequestMapping(value = "/vote/getGroupVote", method = RequestMethod.POST)
-	public @ResponseBody Object getGroupVote(@RequestBody Map<String,Object> map, HttpSession httpsession) {
+	public @ResponseBody Object getGroupVote(@RequestBody Map<String,Object> map, @SessionAttribute("USER") WechatUser user) {
+		
 		int id=Integer.parseInt(map.get("id")+"");
 		VoteGroup voteGroup=voteGroupRepo.findById(id);
 		if(voteGroup.getTimeEnd().before(new Date()))
@@ -43,11 +45,12 @@ public class VoteController {
 		List<VoteInfo> listVote=voteInfoRepo.findByIdGroup(id);
 		Map<String,Object> result=MapTool.Obj2Map(voteGroup);
 		result.put("votelist", listVote);
+		result.put("timeEnd", DateTimeTool.getFormatDate(voteGroup.getTimeEnd(), DateTimeTool.DataFormat3));
 		return MapTool.getSuccessRes(result);
 		
 	}
 	@RequestMapping(value = "/vote/getVoteById", method = RequestMethod.POST)
-	public @ResponseBody Object getVoteById(@RequestBody Map<String,Object> map, HttpSession httpsession) {
+	public @ResponseBody Object getVoteById(@RequestBody Map<String,Object> map,@SessionAttribute("USER") WechatUser user) {
 		int id=Integer.parseInt(map.get("id")+"");
 		if(voteInfoRepo==null)
 			System.out.println("null");
@@ -55,17 +58,17 @@ public class VoteController {
 		return MapTool.getSuccessRes(voteInfo);
 	}
 	@RequestMapping(value = "/vote/createVote", method = RequestMethod.POST)
-	public @ResponseBody Object createVote(@RequestBody Map<String,Object> map, HttpSession httpsession) {
+	public @ResponseBody Object createVote(@RequestBody Map<String,Object> map,@SessionAttribute("USER") WechatUser user) {
 		int id=Integer.parseInt(map.get("id")+"") ;
 		
 		return MapTool.getSuccessRes(id);
 	}
 	@RequestMapping(value="/vote/vote",method = RequestMethod.POST)
-	public @ResponseBody Object vote(@RequestBody Map<String,Object> map, HttpSession httpsession) {
-		WechatUser user=(WechatUser) httpsession.getAttribute("USER");
+	public @ResponseBody Object vote(@RequestBody Map<String,Object> map,@SessionAttribute("USER") WechatUser user) {
 		int id=(int) map.get("id");
 		String result=(String) map.get("result");
 		int id_user=user.getUserid();
+		
 	
 	
 		VoteItem voteItem=new VoteItem();

@@ -38,7 +38,7 @@ public class LoginController {
 
 
 	@RequestMapping(value = "/test", method = RequestMethod.POST)
-	public @ResponseBody Object test(@RequestBody Map<String,Object> map, HttpSession httpsession) {
+	public @ResponseBody Object test(@RequestBody Map<String,Object> map) {
 
 		return null;
 	}
@@ -97,9 +97,9 @@ public class LoginController {
 			e.printStackTrace();
 			return MapTool.getErrorRes("未知错误");
 		}
-		if(wuser.getUserid()==0) {
+		if(wuser.getUserid()==null) 
 			return MapTool.getErrorRes(openid);
-		}
+		
 		httpsession.setAttribute("USER", wuser);
 		return MapTool.getSuccessRes(wuser);
 	}

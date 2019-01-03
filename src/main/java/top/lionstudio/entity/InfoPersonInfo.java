@@ -14,21 +14,21 @@ import java.util.Date;
 @NamedQuery(name="InfoPersonInfo.findAll", query="SELECT i FROM InfoPersonInfo i")
 public class InfoPersonInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private int personId;
+	private Integer personId;
 	private String addedAttribute1;
 	private String addedAttribute2;
 	private String addedAttribute3;
 	private String addedAttribute4;
 	private String addedAttribute5;
-	private int baseProTownByResidencePlaceId;
+	private Integer baseProTownByResidencePlaceId;
 	private String campusCardNum;
 	private String campusNum;
 	private String cardTypeCode;
 	private Date censusRegisterDate;
 	private String className;
-	private int collegeId;
-	private int collegeId1;
-	private int collegeId2;
+	private Integer collegeId;
+	private Integer collegeId1;
+	private Integer collegeId2;
 	private String collegeName;
 	private String collegeNum;
 	private Date createTime;
@@ -53,9 +53,9 @@ public class InfoPersonInfo implements Serializable {
 	private String hujiCity;
 	private String hujiProvince;
 	private String hujiTown;
-	private int infoTypeCode;
-	private int isChangePwd;
-	private int isMarried;
+	private Integer infoTypeCode;
+	private Integer isChangePwd;
+	private Integer isMarried;
 	private String lastDegree;
 	private String lastDegreeSchool;
 	private Date lastDegreeTime;
@@ -65,12 +65,12 @@ public class InfoPersonInfo implements Serializable {
 	private String majorName;
 	private String majorNum;
 	private String mobilePhone;
-	private int modifierId;
+	private Integer modifierId;
 	private String modifyBusiness;
-	private int modifyerId;
+	private Integer modifyerId;
 	private Date modifyTime;
 	private String msn;
-	private int nationId;
+	private Integer nationId;
 	private String nativeCity;
 	private String nativeProvince;
 	private String nativeRoadCode;
@@ -79,7 +79,7 @@ public class InfoPersonInfo implements Serializable {
 	private String nativeTown;
 	private String odlPerNum;
 	private String oldPerNum;
-	private int peopleId;
+	private Integer peopleId;
 	private String perAddress;
 	private Date perBirthday;
 	private String perEnglishFamilyName;
@@ -129,7 +129,7 @@ public class InfoPersonInfo implements Serializable {
 	@Id
 	@SequenceGenerator(name="INFO_PERSON_INFO_PERSONID_GENERATOR" )
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="INFO_PERSON_INFO_PERSONID_GENERATOR")
-	public int getPersonId() {
+	public Integer getPersonId() {
 		return this.personId;
 	}
 
@@ -183,7 +183,7 @@ public class InfoPersonInfo implements Serializable {
 	}
 
 
-	public int getBaseProTownByResidencePlaceId() {
+	public Integer getBaseProTownByResidencePlaceId() {
 		return this.baseProTownByResidencePlaceId;
 	}
 
@@ -238,7 +238,7 @@ public class InfoPersonInfo implements Serializable {
 	}
 
 
-	public int getCollegeId() {
+	public Integer getCollegeId() {
 		return this.collegeId;
 	}
 
@@ -247,7 +247,7 @@ public class InfoPersonInfo implements Serializable {
 	}
 
 
-	public int getCollegeId1() {
+	public Integer getCollegeId1() {
 		return this.collegeId1;
 	}
 
@@ -256,7 +256,7 @@ public class InfoPersonInfo implements Serializable {
 	}
 
 
-	public int getCollegeId2() {
+	public Integer getCollegeId2() {
 		return this.collegeId2;
 	}
 
@@ -483,7 +483,7 @@ public class InfoPersonInfo implements Serializable {
 	}
 
 
-	public int getInfoTypeCode() {
+	public Integer getInfoTypeCode() {
 		return this.infoTypeCode;
 	}
 
@@ -492,7 +492,7 @@ public class InfoPersonInfo implements Serializable {
 	}
 
 
-	public int getIsChangePwd() {
+	public Integer getIsChangePwd() {
 		return this.isChangePwd;
 	}
 
@@ -501,7 +501,7 @@ public class InfoPersonInfo implements Serializable {
 	}
 
 
-	public int getIsMarried() {
+	public Integer getIsMarried() {
 		return this.isMarried;
 	}
 
@@ -593,7 +593,7 @@ public class InfoPersonInfo implements Serializable {
 	}
 
 
-	public int getModifierId() {
+	public Integer getModifierId() {
 		return this.modifierId;
 	}
 
@@ -611,7 +611,7 @@ public class InfoPersonInfo implements Serializable {
 	}
 
 
-	public int getModifyerId() {
+	public Integer getModifyerId() {
 		return this.modifyerId;
 	}
 
@@ -639,7 +639,7 @@ public class InfoPersonInfo implements Serializable {
 	}
 
 
-	public int getNationId() {
+	public Integer getNationId() {
 		return this.nationId;
 	}
 
@@ -720,7 +720,7 @@ public class InfoPersonInfo implements Serializable {
 	}
 
 
-	public int getPeopleId() {
+	public Integer getPeopleId() {
 		return this.peopleId;
 	}
 

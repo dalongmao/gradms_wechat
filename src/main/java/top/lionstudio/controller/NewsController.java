@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
+import top.lionstudio.entity.WechatUser;
 import top.lionstudio.service.NewsService;
 import top.lionstudio.tool.MapTool;
 
@@ -22,7 +24,7 @@ public class NewsController {
 	private NewsService newsService;
 
 	@RequestMapping(value = "/news/newsList", method = RequestMethod.POST)
-	public @ResponseBody Object newsList(@RequestBody Map<String, Object> map, HttpSession httpsession) {
+	public @ResponseBody Object newsList(@RequestBody Map<String, Object> map, @SessionAttribute("USER") WechatUser user) {
 		//push all
 		String type=(String) map.get("type");
 		List<Map> resultlist=newsService.requestNewsList(type);

@@ -14,11 +14,11 @@ import java.util.Date;
 @NamedQuery(name="ZwRoomApply.findAll", query="SELECT z FROM RoomApply z")
 public class RoomApply implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private int id;
+	private Integer id;
 	private String brief;
 	private Date dateActivity;
-	private int idApplyer;
-	private int idRoom;
+	private Integer idApplyer;
+	private Integer idRoom;
 	private Date timeApply;
 	private String timenodes;
 
@@ -27,7 +27,7 @@ public class RoomApply implements Serializable {
 
 
 	@Id
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
@@ -57,7 +57,7 @@ public class RoomApply implements Serializable {
 
 
 	@Column(name="id_applyer")
-	public int getIdApplyer() {
+	public Integer getIdApplyer() {
 		return this.idApplyer;
 	}
 
@@ -67,7 +67,7 @@ public class RoomApply implements Serializable {
 
 
 	@Column(name="id_room")
-	public int getIdRoom() {
+	public Integer getIdRoom() {
 		return this.idRoom;
 	}
 

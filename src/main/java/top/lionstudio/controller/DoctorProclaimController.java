@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
+import top.lionstudio.entity.WechatUser;
 import top.lionstudio.service.DoctorService;
 import top.lionstudio.tool.MapTool;
 
@@ -26,7 +28,7 @@ public class DoctorProclaimController {
 
 
 	@RequestMapping(value = "/doctor/getdoctorproclaim", method = RequestMethod.POST)
-	public @ResponseBody Object getdoctorproclaim(@RequestBody Map<String, Object> map, HttpSession httpsession) {
+	public @ResponseBody Object getdoctorproclaim(@RequestBody Map<String, Object> map, @SessionAttribute("USER") WechatUser user) {
 	//	ZwWechatUser user = (ZwWechatUser) httpsession.getAttribute("USER");
 		int id = Integer.parseInt(map.get("id")+"") ;
 		
@@ -34,7 +36,7 @@ public class DoctorProclaimController {
 	}
 	
 	@RequestMapping(value = "/doctor/getdoctorlist", method = RequestMethod.POST)
-	public @ResponseBody Object getdoctorlist(@RequestBody Map<String, Object> map, HttpSession httpsession) {
+	public @ResponseBody Object getdoctorlist(@RequestBody Map<String, Object> map, @SessionAttribute("USER") WechatUser user) {
 	//	ZwWechatUser user = (ZwWechatUser) httpsession.getAttribute("USER");
 	//	int id = user.getUserid();
 	

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import top.lionstudio.entity.MeetingInfo;
 import top.lionstudio.entity.MeetingSign;
@@ -29,8 +30,7 @@ public class MeetingController {
 	private MeetinginfoRepo meetinginforepo;
 
 	@RequestMapping(value = "/meeting/getmeetinginfo", method = RequestMethod.POST)
-	public @ResponseBody Object getmeetinginfo(@RequestBody Map<String, Object> map, HttpSession httpsession) {
-		WechatUser user = (WechatUser) httpsession.getAttribute("USER");
+	public @ResponseBody Object getmeetinginfo(@RequestBody Map<String, Object> map,@SessionAttribute("USER") WechatUser user) {
 		int id = (int) map.get("id");
 		MeetingInfo meetinginfo = meetinginforepo.findById(id);
 
@@ -57,8 +57,7 @@ public class MeetingController {
 	}
 
 	@RequestMapping(value = "/meeting/sign", method = RequestMethod.POST)
-	public @ResponseBody Object sign(@RequestBody Map<String, Object> map, HttpSession httpsession) {
-		WechatUser user = (WechatUser) httpsession.getAttribute("USER");
+	public @ResponseBody Object sign(@RequestBody Map<String, Object> map, @SessionAttribute("USER") WechatUser user) {
 		MeetingSign signinfo = signinfoRepo.findByOpenid(user.getOpenid());
 		if (signinfo == null)
 			signinfo = new MeetingSign();
@@ -88,8 +87,7 @@ public class MeetingController {
 	
 
 	@RequestMapping(value = "/meeting/getsigninfo", method = RequestMethod.POST)
-	public @ResponseBody Object getsigninfo(@RequestBody Map<String, Object> map, HttpSession httpsession) {
-		WechatUser user = (WechatUser) httpsession.getAttribute("USER");
+	public @ResponseBody Object getsigninfo(@RequestBody Map<String, Object> map, @SessionAttribute("USER") WechatUser user) {
 		MeetingSign signinfo = signinfoRepo.findByOpenid(user.getOpenid());
 
 		return MapTool.getSuccessRes(signinfo);

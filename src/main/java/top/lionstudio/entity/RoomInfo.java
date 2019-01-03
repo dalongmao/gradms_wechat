@@ -13,10 +13,10 @@ import javax.persistence.*;
 @NamedQuery(name="ZwRoomInfo.findAll", query="SELECT z FROM RoomInfo z")
 public class RoomInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private int id;
+	private Integer id;
 	private String address;
 	private String des;
-	private int idPart;
+	private Integer idPart;
 	private String name;
 
 	public RoomInfo() {
@@ -24,7 +24,7 @@ public class RoomInfo implements Serializable {
 
 
 	@Id
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
@@ -52,7 +52,7 @@ public class RoomInfo implements Serializable {
 
 
 	@Column(name="id_part")
-	public int getIdPart() {
+	public Integer getIdPart() {
 		return this.idPart;
 	}
 

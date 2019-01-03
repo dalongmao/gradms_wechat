@@ -14,7 +14,7 @@ import java.util.Date;
 @NamedQuery(name="ZwVoteGroup.findAll", query="SELECT z FROM VoteGroup z")
 public class VoteGroup implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private int id;
+	private Integer id;
 	private String des;
 	private String name;
 	private Date timeCreat;
@@ -25,7 +25,7 @@ public class VoteGroup implements Serializable {
 
 
 	@Id
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
