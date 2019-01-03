@@ -89,9 +89,8 @@ public class VoteController {
 	@RequestMapping(value = "/vote/createVote", method = RequestMethod.POST)
 	public @ResponseBody Object createVote(@RequestBody Map<String,Object> map,@SessionAttribute("USER") WechatUser user) {
 		int id=Integer.parseInt(map.get("id")+"") ;
+		//
 		
-		
-		//生成所有选票
 		return MapTool.getSuccessRes(id);
 	}
 	@RequestMapping(value="/vote/letvote",method = RequestMethod.POST)

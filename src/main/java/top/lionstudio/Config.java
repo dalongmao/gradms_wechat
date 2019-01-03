@@ -20,6 +20,7 @@ public class Config  implements  WebMvcConfigurer {
 		//主拦截器  检查 session
 		registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/meeting/*");
 		registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/vote/*");
+		registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/test");
 	}
 
 }
