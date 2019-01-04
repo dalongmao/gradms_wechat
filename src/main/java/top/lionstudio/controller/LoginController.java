@@ -40,7 +40,7 @@ public class LoginController {
 	@RequestMapping(value = "/test", method = RequestMethod.POST)
 	public @ResponseBody Object test(@RequestBody Map<String,Object> map) {
 
-		return null;
+		return "welcome";
 	}
 	
 	@RequestMapping(value = "/sign", method = RequestMethod.POST)
