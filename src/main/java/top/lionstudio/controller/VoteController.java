@@ -109,7 +109,7 @@ public class VoteController {
 			else
 				index = Integer.parseInt(item.get("index") + "");
 			Map resultOb = null;
-			if (Jsonresult != null && Jsonresult.size() > 0)
+			if (Jsonresult != null && Jsonresult.size() > 0){
 				for (Map resultItem : Jsonresult) {
 					int resultIndex = 0;
 					if (resultItem.get("index") instanceof Double)
@@ -123,7 +123,7 @@ public class VoteController {
 					}
 				}
 
-			item.put("status", resultOb.get("status"));
+			item.put("status", resultOb.get("status"));}
 		}
 		result.put("content", Jsoncontent);
 

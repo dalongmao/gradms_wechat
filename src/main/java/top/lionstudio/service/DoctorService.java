@@ -41,5 +41,4 @@ public class DoctorService {
 			return (Map) JsonTool.fromJson(content, Map.class);
 	}
 	
-
 }
