@@ -133,7 +133,7 @@ public class InfoPersonInfo implements Serializable {
 		return this.personId;
 	}
 
-	public void setPersonId(int personId) {
+	public void setPersonId( Integer personId) {
 		this.personId = personId;
 	}
 
@@ -187,7 +187,7 @@ public class InfoPersonInfo implements Serializable {
 		return this.baseProTownByResidencePlaceId;
 	}
 
-	public void setBaseProTownByResidencePlaceId(int baseProTownByResidencePlaceId) {
+	public void setBaseProTownByResidencePlaceId( Integer baseProTownByResidencePlaceId) {
 		this.baseProTownByResidencePlaceId = baseProTownByResidencePlaceId;
 	}
 
@@ -242,7 +242,7 @@ public class InfoPersonInfo implements Serializable {
 		return this.collegeId;
 	}
 
-	public void setCollegeId(int collegeId) {
+	public void setCollegeId( Integer collegeId) {
 		this.collegeId = collegeId;
 	}
 
@@ -251,7 +251,7 @@ public class InfoPersonInfo implements Serializable {
 		return this.collegeId1;
 	}
 
-	public void setCollegeId1(int collegeId1) {
+	public void setCollegeId1( Integer collegeId1) {
 		this.collegeId1 = collegeId1;
 	}
 
@@ -260,7 +260,7 @@ public class InfoPersonInfo implements Serializable {
 		return this.collegeId2;
 	}
 
-	public void setCollegeId2(int collegeId2) {
+	public void setCollegeId2( Integer collegeId2) {
 		this.collegeId2 = collegeId2;
 	}
 
@@ -487,7 +487,7 @@ public class InfoPersonInfo implements Serializable {
 		return this.infoTypeCode;
 	}
 
-	public void setInfoTypeCode(int infoTypeCode) {
+	public void setInfoTypeCode( Integer infoTypeCode) {
 		this.infoTypeCode = infoTypeCode;
 	}
 
@@ -496,7 +496,7 @@ public class InfoPersonInfo implements Serializable {
 		return this.isChangePwd;
 	}
 
-	public void setIsChangePwd(int isChangePwd) {
+	public void setIsChangePwd( Integer isChangePwd) {
 		this.isChangePwd = isChangePwd;
 	}
 
@@ -505,7 +505,7 @@ public class InfoPersonInfo implements Serializable {
 		return this.isMarried;
 	}
 
-	public void setIsMarried(int isMarried) {
+	public void setIsMarried( Integer isMarried) {
 		this.isMarried = isMarried;
 	}
 
@@ -597,7 +597,7 @@ public class InfoPersonInfo implements Serializable {
 		return this.modifierId;
 	}
 
-	public void setModifierId(int modifierId) {
+	public void setModifierId( Integer modifierId) {
 		this.modifierId = modifierId;
 	}
 
@@ -615,7 +615,7 @@ public class InfoPersonInfo implements Serializable {
 		return this.modifyerId;
 	}
 
-	public void setModifyerId(int modifyerId) {
+	public void setModifyerId( Integer modifyerId) {
 		this.modifyerId = modifyerId;
 	}
 
@@ -643,7 +643,7 @@ public class InfoPersonInfo implements Serializable {
 		return this.nationId;
 	}
 
-	public void setNationId(int nationId) {
+	public void setNationId( Integer nationId) {
 		this.nationId = nationId;
 	}
 
@@ -724,7 +724,7 @@ public class InfoPersonInfo implements Serializable {
 		return this.peopleId;
 	}
 
-	public void setPeopleId(int peopleId) {
+	public void setPeopleId( Integer peopleId) {
 		this.peopleId = peopleId;
 	}
 
